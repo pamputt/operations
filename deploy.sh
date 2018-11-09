@@ -6,6 +6,9 @@ RELEASE=${RELEASE:-REL1_31}
 read -p "System user [www-data]: " USER
 USER=${USER:-www-data}
 
+read -p "Path [v2.lingualibre.fr]: " MAINPATH
+MAINPATH=${MAINPATH:-v2.lingualibre.fr}
+
 if [ $# -eq 0 ]
 then
 	read -p "database name: " wgDBname
@@ -17,8 +20,8 @@ then
 fi
 
 # Install Mediawiki  and import configuration files
-git clone  --recurse-submodules https://gerrit.wikimedia.org/r/p/mediawiki/core.git --branch ${RELEASE} --depth=1 v2.lingualibre.fr
-cd v2.lingualibre.fr/
+git clone  --recurse-submodules https://gerrit.wikimedia.org/r/p/mediawiki/core.git --branch ${RELEASE} --depth=1 ${MAINPATH}
+cd ${MAINPATH}/
 wget https://raw.githubusercontent.com/lingua-libre/operations/master/mediawiki-config/ll.png -o resources/assets/ll.png
 wget https://raw.githubusercontent.com/lingua-libre/operations/master/mediawiki-config/LocalSettings.php
 mkdir private

@@ -1,18 +1,39 @@
 #!/bin/bash
 
-read -p "Mediawiki Release [REL1_31]:" RELEASE
+read -p "Mediawiki Release [REL1_31]: " RELEASE
 RELEASE=${RELEASE:-REL1_31}
 
-read -p "System user [www-data]:" USER
+read -p "System user [www-data]: " USER
 USER=${USER:-www-data}
+
+if [ $# -eq 0 ]
+then
+	read -p "database name: " wgDBname
+	read -p "database user: " wgDBuser
+	read -p "database password: " wgDBpassword
+	read -p "wiki secret key: " wgSecretKey
+	read -p "OAuth consumer key: " wgOAuthAuthenticationConsumerKey
+	read -p "OAuth consumer secret: " wgOAuthAuthenticationConsumerSecret
+fi
 
 # Install Mediawiki  and import configuration files
 git clone  --recurse-submodules https://gerrit.wikimedia.org/r/p/mediawiki/core.git --branch ${RELEASE} --depth=1 v2.lingualibre.fr
 cd v2.lingualibre.fr/
-wget https://raw.githubusercontent.com/lingua-libre/operations/master/mediawiki-config/ll.png -o /resources/assets/ll.png
+wget https://raw.githubusercontent.com/lingua-libre/operations/master/mediawiki-config/ll.png -o resources/assets/ll.png
 wget https://raw.githubusercontent.com/lingua-libre/operations/master/mediawiki-config/LocalSettings.php
 mkdir private
-wget https://raw.githubusercontent.com/lingua-libre/operations/master/mediawiki-config/private/PrivateSettings.php.sample -o private/PrivateSettings.php
+if [ $# -eq 0 ]
+then
+    echo "<?php" >> private/PrivateSettings.php
+    echo "\$wgDBname = \"${wgDBname}\";" >> private/PrivateSettings.php
+    echo "\$wgDBuser = \"${wgDBuser}\";" >> private/PrivateSettings.php
+    echo "\$wgDBpassword = \"${wgDBpassword}\";" >> private/PrivateSettings.php
+    echo "\$wgSecretKey = \"${wgSecretKey}\";" >> private/PrivateSettings.php
+    echo "\$wgOAuthAuthenticationConsumerKey = \"${wgOAuthAuthenticationConsumerKey}\";" >> private/PrivateSettings.php
+    echo "\$wgOAuthAuthenticationConsumerSecret = \"${wgOAuthAuthenticationConsumerSecret}\";" >> private/PrivateSettings.php
+else
+    cp $1 private/PrivateSettings.php
+fi
 chown -R ${USER}:${USER} ./
 sudo -u ${USER} composer install
 

@@ -42,7 +42,7 @@ sudo -u ${USER} git clone --depth 1 https://github.com/lingua-libre/llskin.git s
 
 # Install extensions
 cd extensions/
-for ext in OAuthAuthentication Wikibase cldr CleanChanges LocalisationUpdate Babel UniversalLanguageSelector Translate MwEmbedSupport TimedMediaHandler
+for ext in OAuthAuthentication Wikibase cldr CleanChanges LocalisationUpdate Babel UniversalLanguageSelector Translate MwEmbedSupport TimedMediaHandler CodeEditor
 do
 	sudo -u ${USER} git clone https://gerrit.wikimedia.org/r/p/mediawiki/extensions/${ext}.git --branch ${RELEASE} --depth 1
 done

@@ -167,9 +167,12 @@ wfLoadExtension( 'SpamBlacklist' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'WikiEditor' );
+wfLoadExtension( 'CodeEditor' );
 
 $wgHiddenPrefs[] = 'usebetatoolbar';
 $wgDefaultUserOptions['usebetatoolbar'] = 1;
+$wgScribuntoUseCodeEditor = true;
+$wgScribuntoUseGeSHi = true;
 
 # Activate the OAuthAuthentication extension
 wfLoadExtension( 'OAuthAuthentication' );
@@ -179,8 +182,8 @@ if($isBeta) {
     $wgOAuthAuthenticationCanonicalUrl = 'https://oauth.0x010c.fr';
     $wgOAuthAuthenticationRemoteName = 'OAuthWiki';
 } else {
-    $wgOAuthAuthenticationUrl = 'https://commons.wikimedia.org/w/index.php?title=Special:OAuth'; 
-    $wgOAuthAuthenticationCanonicalUrl = 'https://commons.wikimedia.org'; 
+    $wgOAuthAuthenticationUrl = 'https://commons.wikimedia.org/w/index.php?title=Special:OAuth';
+    $wgOAuthAuthenticationCanonicalUrl = 'https://commons.wikimedia.org';
     $wgOAuthAuthenticationRemoteName = 'Wikimedia Commons';
 }
 $wgOAuthAuthenticationAllowLocalUsers = false;

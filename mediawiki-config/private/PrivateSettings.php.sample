@@ -1,0 +1,11 @@
+<?php
+
+$wgDBname = "";
+$wgDBuser = "";
+$wgDBpassword = "";
+
+$wgSecretKey = "";
+
+$wgOAuthAuthenticationConsumerKey = "";
+$wgOAuthAuthenticationConsumerSecret = "";
+

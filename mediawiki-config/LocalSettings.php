@@ -168,7 +168,12 @@ wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'WikiEditor' );
 wfLoadExtension( 'CodeEditor' );
+wfLoadExtension( 'Scribunto' );
 
+#Configure scribunto
+$wgScribuntoDefaultEngine = 'luastandalone';
+
+# Edit toolbars configurations
 $wgHiddenPrefs[] = 'usebetatoolbar';
 $wgDefaultUserOptions['usebetatoolbar'] = 1;
 $wgScribuntoUseCodeEditor = true;

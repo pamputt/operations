@@ -42,7 +42,7 @@ sudo -u ${USER} git clone --depth 1 https://github.com/lingua-libre/llskin.git s
 
 # Install extensions
 cd extensions/
-for ext in OAuthAuthentication Wikibase cldr CleanChanges LocalisationUpdate Babel UniversalLanguageSelector Translate MwEmbedSupport TimedMediaHandler CodeEditor
+for ext in OAuthAuthentication Wikibase cldr CleanChanges LocalisationUpdate Babel UniversalLanguageSelector Translate MwEmbedSupport TimedMediaHandler CodeEditor Scribunto
 do
 	sudo -u ${USER} git clone https://gerrit.wikimedia.org/r/p/mediawiki/extensions/${ext}.git --branch ${RELEASE} --depth 1
 done
@@ -59,6 +59,9 @@ cd OAuthAuthentication/ && sudo -u ${USER} git fetch https://gerrit.wikimedia.or
 
 # Import submodules and install dependencies of Wikibase
 cd Wikibase && sudo -u ${USER} git submodule update --init --recursive cd ../
+
+# Allow the execution of the lua binary for Scribunto
+chmod a+x Scribunto/includes/engines/LuaStandalone/binaries/lua5_1_5_linux_lua_64/generic
 
 # Composer install
 for ext in Wikibase OAuthAuthentication TimedMediaHandler

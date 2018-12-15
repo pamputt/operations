@@ -38,6 +38,6 @@ do
   if [[ $qid == Q* ]] ; then
     echo "--> Processing ${qid}..."
     /usr/bin/python3.5 /home/www/CommonsDownloadTool/commons_download_tool.py --keep --sparqlurl https://lingualibre.fr/bigdata/namespace/wdq/sparql --sparql "SELECT ?file ?filename WHERE { ${query} ?record prop:P4 entity:${qid}. }" --threads 4 --directory /tmp/datasets/raw/ --output "/tmp/datasets/${qid}.zip" --fileformat ogg
-    mv "/tmp/datasets/${qid}.zip" "/home/www/datasets/${qid}.zip"
+    mv "/tmp/datasets/${qid}.zip" "/home/www/datasets/${qidpath}.zip"
   fi
 done

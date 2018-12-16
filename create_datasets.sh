@@ -11,8 +11,6 @@ queryCore="?record prop:P2 entity:Q2 ;
   OPTIONAL{ ?lang prop:P13 ?langIso. }
   OPTIONAL { ?record prop:P18 ?qualif. }
 
-
-
   ?locutor rdfs:label ?locutorLabel.
   ?lang rdfs:label ?langLabel FILTER (lang(?langLabel) = 'en')."
 queryBinds="

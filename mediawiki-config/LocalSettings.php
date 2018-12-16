@@ -83,7 +83,7 @@ $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 $wgDBmysql5 = false;
 
 ## Shared memory settings
-$wgMainCacheType = CACHE_NONE;# CACHE_ACCEL;
+$wgMainCacheType = CACHE_ACCEL;
 $wgMemCachedServers = [];
 $wgObjectCacheSessionExpiry = 86400;
 

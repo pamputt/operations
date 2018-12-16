@@ -26,10 +26,10 @@ echo "--> Force the download of recent changes..."
 /usr/bin/python3.5 /home/www/CommonsDownloadTool/commons_download_tool.py --keep --sparqlurl https://lingualibre.fr/bigdata/namespace/wdq/sparql --sparql "SELECT ?file ?filename WHERE { ${query} FILTER( ?date > \"`date --rfc-3339=date --date="- 2 days"`\"^^xsd:dateTime ). }" --threads 4 --directory /tmp/datasets/raw/ --forcedownload --nozip --fileformat ogg
 
 echo "--> Download and package all sounds..."
-/usr/bin/python3.5 /home/www/CommonsDownloadTool/commons_download_tool.py --keep --sparqlurl https://lingualibre.fr/bigdata/namespace/wdq/sparql --sparql "SELECT ?file ?filename WHERE { ${query} }" --threads 4 --directory /tmp/datasets/raw/ --output "/tmp/datasets/lingualibre.zip" --fileformat ogg
+/usr/bin/python3.5 /home/www/CommonsDownloadTool/commons_download_tool.py --keep --sparqlurl https://lingualibre.fr/bigdata/namespace/wdq/sparql --sparql "SELECT ?file ?filename WHERE { ${query} }" --threads 4 --directory /tmp/datasets/raw/ --output "/tmp/datasets/LinguaLibre-ALL.zip" --fileformat ogg
 
 echo "--> Move the global zip in the public area"
-mv /tmp/datasets/lingualibre.zip /home/www/datasets/
+mv /tmp/datasets/LinguaLibre-ALL.zip /home/www/datasets/
 
 echo "--> Packahe each language individually"
 for qidpath in /tmp/datasets/raw/*;
@@ -38,6 +38,6 @@ do
   if [[ $qid == Q* ]] ; then
     echo "--> Processing ${qid}..."
     /usr/bin/python3.5 /home/www/CommonsDownloadTool/commons_download_tool.py --keep --sparqlurl https://lingualibre.fr/bigdata/namespace/wdq/sparql --sparql "SELECT ?file ?filename WHERE { ${query} ?record prop:P4 entity:${qid}. }" --threads 4 --directory /tmp/datasets/raw/ --output "/tmp/datasets/${qid}.zip" --fileformat ogg
-    mv "/tmp/datasets/${qid}.zip" "/home/www/datasets/${qidpath}.zip"
+    mv "/tmp/datasets/${qid}.zip" "/home/www/datasets/LinguaLibre-${qidpath}.zip"
   fi
 done

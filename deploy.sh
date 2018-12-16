@@ -38,7 +38,7 @@ else
     cp $1 private/PrivateSettings.php
 fi
 chown -R ${USER}:${USER} ./
-sudo -u ${USER} composer install
+sudo -u ${USER} composer install --no-dev
 
 # Install skins
 sudo -u ${USER} git clone --depth 1 https://github.com/lingua-libre/llskin.git skins/foreground

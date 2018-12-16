@@ -15,6 +15,10 @@ server {
         try_files $uri @rewrite;
     }
 
+    location =/robots.txt {
+        alias /var/robots-www/lingualibre.fr/robots.txt;
+    }
+
     location ~ ^/(bigdata|datasets) {
         proxy_pass http://lingualibre.wikimedia.fr:9000;
         proxy_set_header Host $host;

@@ -7,17 +7,24 @@ query="?record prop:P2 entity:Q2 ;
           prop:P6 ?date ;
           prop:P4 ?lang.
   ?locutor prop:P11 ?user.
-  
+
   OPTIONAL{ ?lang prop:P13 ?langiso. }
   OPTIONAL { ?record prop:P18 ?qualif. }
-  
+
+
+
   ?locutor rdfs:label ?locutorLabel.
-  BIND( CONCAT(SUBSTR(STR(?lang), 31), IF(BOUND(?langiso), CONCAT(' (', ?langiso, ')'), '')) AS ?langstr)
+  ?lang rdfs:label ?langLabel.
+  BIND( CONCAT(
+    SUBSTR(STR(?lang), 31),
+    IF(BOUND(?langiso), CONCAT('_(', ?langiso, ')'), '(no_langiso)'),
+    IF(BOUND(?langLabel), CONCAT('_(', ?langLabel, ')'), '(no_langLabel)')
+  ) AS ?langstr)
   BIND( IF( STR(?locutorLabel) = ?user, '', CONCAT( ' (', ?locutorLabel, ')' ) ) AS ?locutorstr )
   BIND( IF(BOUND(?qualif), CONCAT(' (', ?qualif, ')'), '') AS ?qualifstr )
   BIND(CONCAT(?langstr, '/', ?user, ?locutorstr, '/', ?transcription, ?qualifstr, '.wav') AS ?filename)
 "
-
+# edit langstr to add english name
 
 
 mkdir -p /tmp/datasets
@@ -40,7 +47,7 @@ done
 
 echo "--> Move zip archives in the public area, ALL and by language"
 for filename in /tmp/datasets/*.zip;
-do 
+do
   zip_basename="$(basename "$filename")"
   mv "$filename" "/home/www/datasets/LinguaLibre-$zip_basename";
 done;

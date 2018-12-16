@@ -215,6 +215,7 @@ $wgWBRepoSettings['entityNamespaces']['property'] = WB_NS_PROPERTY;
 $wgWBRepoSettings['siteLinkGroups'] = array(); #We don't need sitelinks
 
 $wgWBRepoSettings['formatterUrlProperty'] = 'P10'; # see https://github.com/wikimedia/mediawiki-extensions-Wikibase/blob/master/docs/options.wiki
+$wgWBRepoSettings['canonicalUriProperty'] = 'P22';
 
 #$wgWBRepoSettings['sparqlEndpoint'] = 'URL to the service description of the SPARQL end point for the repository'
 

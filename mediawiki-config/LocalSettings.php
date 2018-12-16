@@ -85,6 +85,7 @@ $wgDBmysql5 = false;
 ## Shared memory settings
 $wgMainCacheType = CACHE_NONE;# CACHE_ACCEL;
 $wgMemCachedServers = [];
+$wgObjectCacheSessionExpiry = 86400;
 
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:

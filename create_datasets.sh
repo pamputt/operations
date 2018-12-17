@@ -31,7 +31,7 @@ query="$queryCore $queryBinds"
 mkdir -p  /tmp/datasets /tmp/datasets/raw/
 
 echo "--> Force the download of recent changes..."
-/usr/bin/python3.6 /home/www/CommonsDownloadTool/commons_download_tool.py --keep --sparqlurl https://lingualibre.fr/bigdata/namespace/wdq/sparql --sparql "SELECT ?file ?filename WHERE { ${query} ${queryFilterRecent} }" --threads 4 --directory  /tmp/datasets/raw/ --forcedownload --nozip --fileformat ogg
+/usr/bin/python3.5 /home/www/CommonsDownloadTool/commons_download_tool.py --keep --sparqlurl https://lingualibre.fr/bigdata/namespace/wdq/sparql --sparql "SELECT ?file ?filename WHERE { ${query} ${queryFilterRecent} }" --threads 4 --directory  /tmp/datasets/raw/ --forcedownload --nozip --fileformat ogg
 
 echo "--> Download and package ALL sounds..."
 /usr/bin/python3.5 /home/www/CommonsDownloadTool/commons_download_tool.py --keep --sparqlurl https://lingualibre.fr/bigdata/namespace/wdq/sparql --sparql "SELECT ?file ?filename WHERE { ${query} }" --threads 4 --directory  /tmp/datasets/raw/ --output "/tmp/datasets/ALL.zip" --fileformat ogg

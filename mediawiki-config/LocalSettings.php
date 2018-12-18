@@ -23,7 +23,7 @@ $wgMetaNamespace = "LinguaLibre";
 
 # Private settings such as passwords, that shouldn't be published
 # Needs to be before db.php
-require "./private/PrivateSettings.php";
+require __DIR__ . "/private/PrivateSettings.php";
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.

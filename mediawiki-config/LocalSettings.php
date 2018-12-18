@@ -204,12 +204,6 @@ $wgEnableWikibaseClient = false;
 require_once "$IP/extensions/Wikibase/repo/Wikibase.php";
 require_once "$IP/extensions/Wikibase/repo/ExampleSettings.php";
 
-define( 'WB_NS_PROPERTY', 102 );
-define( 'WB_NS_PROPERTY_TALK', 103 );
-
-$wgExtraNamespaces[WB_NS_PROPERTY] = 'Property';
-$wgExtraNamespaces[WB_NS_PROPERTY_TALK] = 'Property_talk';
-
 $wgWBRepoSettings['entityNamespaces']['item'] = NS_MAIN;
 $wgWBRepoSettings['entityNamespaces']['property'] = WB_NS_PROPERTY;
 

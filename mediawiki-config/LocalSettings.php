@@ -200,9 +200,11 @@ $wgOAuthAuthenticationCallbackUrl = 'https://lingualibre.fr/wiki/Special:OAuthLo
 
 # Activate the Wikibase Repository extension
 $wgEnableWikibaseRepo = true;
-$wgEnableWikibaseClient = false;
+$wgEnableWikibaseClient = true;
 require_once "$IP/extensions/Wikibase/repo/Wikibase.php";
 require_once "$IP/extensions/Wikibase/repo/ExampleSettings.php";
+require_once "$IP/extensions/Wikibase/client/WikibaseClient.php";
+require_once "$IP/extensions/Wikibase/client/ExampleSettings.php";
 
 $wgWBRepoSettings['entityNamespaces']['item'] = NS_MAIN;
 $wgWBRepoSettings['entityNamespaces']['property'] = WB_NS_PROPERTY;

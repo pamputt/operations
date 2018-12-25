@@ -231,12 +231,6 @@ $wgExtraNamespaces[NS_LIST] = 'List';
 $wgExtraNamespaces[NS_LIST_TALK] = 'List_talk';
 $wgNamespacesWithSubpages[NS_LIST] = true;
 
-define('NS_DATAVIZ', 144);
-define('NS_DATAVIZ_TALK', 145);
-$wgExtraNamespaces[NS_DATAVIZ] = 'DataViz';
-$wgExtraNamespaces[NS_DATAVIZ_TALK] = 'DataViz_talk';
-$wgNamespacesWithSubpages[NS_DATAVIZ] = true;
-
 # Activate the RecordingExtension
 wfLoadExtension( 'RecordWizard' );
 $wgRecordWizardConfig['properties']['langCode'] = 'P17';

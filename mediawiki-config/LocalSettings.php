@@ -84,6 +84,7 @@ $wgDBmysql5 = false;
 
 ## Shared memory settings
 $wgMainCacheType = CACHE_ACCEL;
+$wgSessionCacheType = CACHE_DB;
 $wgMemCachedServers = [];
 $wgObjectCacheSessionExpiry = 86400;
 

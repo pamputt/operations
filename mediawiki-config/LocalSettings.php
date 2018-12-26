@@ -86,7 +86,7 @@ $wgDBmysql5 = false;
 $wgMainCacheType = CACHE_ACCEL;
 $wgSessionCacheType = CACHE_DB;
 $wgMemCachedServers = [];
-$wgObjectCacheSessionExpiry = 86400;
+$wgObjectCacheSessionExpiry = 864000;
 
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:

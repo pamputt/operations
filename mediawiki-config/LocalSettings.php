@@ -37,12 +37,7 @@ $wgUsePathInfo = true;
 
 if($_SERVER['SERVER_NAME'] == 'lingualibre.fr') {
     $isBeta = False;
-    ## The protocol and server name to use in fully-qualified URLs
     $wgServer = "https://lingualibre.fr";
-
-    # Remove the default TemporaryPassword and LocalPassword authentication provider
-    # to let OAuth as the only authentication provider usable.
-    $wgAuthManagerAutoConfig['primaryauth'] = [];
 }
 else {
     $isBeta = True;
@@ -180,6 +175,10 @@ $wgHiddenPrefs[] = 'usebetatoolbar';
 $wgDefaultUserOptions['usebetatoolbar'] = 1;
 $wgScribuntoUseCodeEditor = true;
 $wgScribuntoUseGeSHi = true;
+
+# Remove the default TemporaryPassword and LocalPassword authentication provider
+# to let OAuth as the only authentication provider usable.
+$wgAuthManagerAutoConfig['primaryauth'] = [];
 
 # Activate the OAuthAuthentication extension
 wfLoadExtension( 'OAuthAuthentication' );

@@ -255,6 +255,7 @@ $wgRecordWizardConfig['properties']['learningPlace'] = 'P15';
 $wgRecordWizardConfig['properties']['qualifier'] = 'P18';
 $wgRecordWizardConfig['properties']['wikipediaTitle'] = 'P19';
 $wgRecordWizardConfig['properties']['wiktionaryEntry'] = 'P20';
+$wgRecordWizardConfig['properties']['mediaType'] = 'P24';
 
 $wgRecordWizardConfig['items']['genderMale'] = 'Q16';
 $wgRecordWizardConfig['items']['genderFemale'] = 'Q17';
@@ -267,6 +268,8 @@ $wgRecordWizardConfig['items']['langLevelNative'] = 'Q15';
 $wgRecordWizardConfig['items']['langLevelGood'] = 'Q14';
 $wgRecordWizardConfig['items']['langLevelAverage'] = 'Q13';
 $wgRecordWizardConfig['items']['langLevelBeginner'] = 'Q12';
+$wgRecordWizardConfig['items']['mediaTypeAudio'] = 'Q88889';
+$wgRecordWizardConfig['items']['mediaTypeVideo'] = 'Q88890';
 
 $wgRecordWizardConfig['listNamespace'] = NS_LIST;
 

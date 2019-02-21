@@ -90,6 +90,7 @@ $wgFileExtensions[] = 'wav';
 $wgFileExtensions[] = 'ogg';
 $wgFileExtensions[] = 'flac';
 $wgFileExtensions[] = 'mp3';
+$wgFileExtensions[] = 'webm';
 #$wgUseImageMagick = true;
 #$wgImageMagickConvertCommand = "/usr/bin/convert";
 

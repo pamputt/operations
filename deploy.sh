@@ -58,10 +58,15 @@ done
 
 
 # Use patched version of OAuthAuthentication
-cd OAuthAuthentication/ && sudo -u ${USER} git fetch https://gerrit.wikimedia.org/r/mediawiki/extensions/OAuthAuthentication refs/changes/30/251930/25 && sudo -u ${USER} git checkout FETCH_HEAD && cd ../
+cd OAuthAuthentication/
+sudo -u ${USER} git fetch https://gerrit.wikimedia.org/r/mediawiki/extensions/OAuthAuthentication refs/changes/30/251930/25
+sudo -u ${USER} git checkout FETCH_HEAD
+cd ../
 
 # Import submodules and install dependencies of Wikibase
-cd Wikibase && sudo -u ${USER} git submodule update --init --recursive cd ../
+cd Wikibase
+sudo -u ${USER} git submodule update --init --recursive
+cd ../
 
 # Allow the execution of the lua binary for Scribunto
 chmod a+x Scribunto/includes/engines/LuaStandalone/binaries/lua5_1_5_linux_lua_64/generic
@@ -90,4 +95,3 @@ cd ../
 php maintenance/update.php
 php extensions/Wikibase/lib/maintenance/populateSitesTable.php
 php extensions/Wikibase/repo/maintenance/rebuildItemsPerSite.php
-

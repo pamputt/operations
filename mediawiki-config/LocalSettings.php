@@ -302,7 +302,7 @@ $wgTranslateDocumentationLanguageCode = 'qqq';
 $wgExtraLanguageNames['qqq'] = 'Message documentation';
 
 wfLoadExtension( 'UniversalLanguageSelector' );
-
+$wgULSGeoService = false;
 
 $wgForceUIMsgAsContentMsg = array( 'licenses' );
 

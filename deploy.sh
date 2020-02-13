@@ -22,7 +22,9 @@ fi
 # Install Mediawiki  and import configuration files
 git clone  --recurse-submodules https://gerrit.wikimedia.org/r/p/mediawiki/core.git --branch ${RELEASE} --depth=1 ${MAINPATH}
 cd ${MAINPATH}/
-wget https://raw.githubusercontent.com/lingua-libre/operations/master/mediawiki-config/ll.png -o resources/assets/ll.png
+mkdir -p resources/assets/logo/
+wget https://raw.githubusercontent.com/lingua-libre/operations/master/mediawiki-config/logo/lingualibre-logo.svg -P resources/assets/logo/
+wget https://raw.githubusercontent.com/lingua-libre/operations/master/mediawiki-config/logo/lingualibre-favicon.ico -P resources/assets/logo/
 wget https://raw.githubusercontent.com/lingua-libre/operations/master/mediawiki-config/LocalSettings.php
 mkdir private
 if [ $# -eq 0 ]

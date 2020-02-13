@@ -49,8 +49,16 @@ $wgResourceBasePath = $wgScriptPath;
 
 ## The URL path to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
-$wgLogo = "$wgResourceBasePath/resources/assets/ll.png";
-$wgFavicon = "$wgResourceBasePath/resources/assets/favicon.ico";
+$wgLogo = "$wgResourceBasePath/resources/assets/logo/lingualibre-logo.svg";
+
+# For the future, when switching to MW 1.35
+#$wgLogos = [
+#	'1x' => "$wgResourceBasePath/resources/assets/logo/lingualibre-logo-1x.png",
+#	'1.5x' => "$wgResourceBasePath/resources/assets/logo/lingualibre-logo-1,5x.png",
+#	'2x' => "$wgResourceBasePath/resources/assets/logo/lingualibre-logo-2x.png",
+#	'svg' => "$wgResourceBasePath/resources/assets/logo/lingualibre-logo.svg"
+#];
+$wgFavicon = "$wgResourceBasePath/resources/assets/logo/lingualibre-favicon.ico";
 
 ## UPO means: this is also a user preference option
 

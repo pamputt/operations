@@ -53,7 +53,7 @@ do
 done
 
 # Install Lingua Libre specific extensions
-for ext in QueryViz RecordWizard Upload2Commons
+for ext in QueryViz RecordWizard Upload2Commons CustomSubtitle
 do
 	sudo -u ${USER} git clone https://github.com/lingua-libre/${ext}.git --depth 1
 done

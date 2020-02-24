@@ -175,6 +175,7 @@ wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'WikiEditor' );
 wfLoadExtension( 'CodeEditor' );
 wfLoadExtension( 'Scribunto' );
+wfLoadExtension( 'CustomSubtitle' );
 
 #Configure scribunto
 $wgScribuntoDefaultEngine = 'luastandalone';

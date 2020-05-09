@@ -21,24 +21,28 @@ fi
 
 # Install Mediawiki  and import configuration files
 git clone  --recurse-submodules https://gerrit.wikimedia.org/r/mediawiki/core.git --branch ${RELEASE} --depth=1 ${MAINPATH}
+
+# Crete PrivateSettings file
+mkdir ${MAINPATH}/private
+if [ $# -eq 0 ]
+then
+    echo "<?php" >> ${MAINPATH}/private/PrivateSettings.php
+    echo "\$wgDBname = \"${wgDBname}\";" >> ${MAINPATH}/private/PrivateSettings.php
+    echo "\$wgDBuser = \"${wgDBuser}\";" >> ${MAINPATH}/private/PrivateSettings.php
+    echo "\$wgDBpassword = \"${wgDBpassword}\";" >> ${MAINPATH}/private/PrivateSettings.php
+    echo "\$wgSecretKey = \"${wgSecretKey}\";" >> ${MAINPATH}/private/PrivateSettings.php
+    echo "\$wgOAuthAuthenticationConsumerKey = \"${wgOAuthAuthenticationConsumerKey}\";" >> ${MAINPATH}/private/PrivateSettings.php
+    echo "\$wgOAuthAuthenticationConsumerSecret = \"${wgOAuthAuthenticationConsumerSecret}\";" >> ${MAINPATH}/private/PrivateSettings.php
+else
+    cp $1 ${MAINPATH}/private/PrivateSettings.php
+fi
+
+# Install Lingua Libre configuration and logos
 cd ${MAINPATH}/
 mkdir -p resources/assets/logo/
 wget https://raw.githubusercontent.com/lingua-libre/operations/master/mediawiki-config/logo/lingualibre-logo.svg -P resources/assets/logo/
 wget https://raw.githubusercontent.com/lingua-libre/operations/master/mediawiki-config/logo/lingualibre-favicon.ico -P resources/assets/logo/
 wget https://raw.githubusercontent.com/lingua-libre/operations/master/mediawiki-config/LocalSettings.php
-mkdir private
-if [ $# -eq 0 ]
-then
-    echo "<?php" >> private/PrivateSettings.php
-    echo "\$wgDBname = \"${wgDBname}\";" >> private/PrivateSettings.php
-    echo "\$wgDBuser = \"${wgDBuser}\";" >> private/PrivateSettings.php
-    echo "\$wgDBpassword = \"${wgDBpassword}\";" >> private/PrivateSettings.php
-    echo "\$wgSecretKey = \"${wgSecretKey}\";" >> private/PrivateSettings.php
-    echo "\$wgOAuthAuthenticationConsumerKey = \"${wgOAuthAuthenticationConsumerKey}\";" >> private/PrivateSettings.php
-    echo "\$wgOAuthAuthenticationConsumerSecret = \"${wgOAuthAuthenticationConsumerSecret}\";" >> private/PrivateSettings.php
-else
-    cp $1 private/PrivateSettings.php
-fi
 chown -R ${USER}:${USER} ./
 sudo -u ${USER} composer install --no-dev
 
@@ -49,7 +53,7 @@ sudo -u ${USER} git clone --depth 1 https://github.com/lingua-libre/BlueLL.git s
 cd extensions/
 for ext in OAuthAuthentication Wikibase cldr CleanChanges LocalisationUpdate Babel UniversalLanguageSelector Translate MwEmbedSupport TimedMediaHandler CodeEditor Scribunto
 do
-	sudo -u ${USER} git clone https://gerrit.wikimedia.org/r/p/mediawiki/extensions/${ext}.git --branch ${RELEASE} --depth 1
+	sudo -u ${USER} git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/${ext}.git --branch ${RELEASE} --depth 1
 done
 
 # Install Lingua Libre specific extensions

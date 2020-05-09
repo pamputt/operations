@@ -35,9 +35,9 @@ $wgScriptExtension = ".php";
 $wgArticlePath = "/wiki/$1";
 $wgUsePathInfo = true;
 
-if($_SERVER['SERVER_NAME'] == 'lingualibre.fr') {
+if($_SERVER['SERVER_NAME'] == 'lingualibre.org') {
     $isBeta = False;
-    $wgServer = "https://lingualibre.fr";
+    $wgServer = "https://lingualibre.org";
 }
 else {
     $isBeta = True;
@@ -65,8 +65,8 @@ $wgFavicon = "$wgResourceBasePath/resources/assets/logo/lingualibre-favicon.ico"
 $wgEnableEmail = false;
 $wgEnableUserEmail = true; # UPO
 
-$wgEmergencyContact = "contact@lingualibre.fr";
-$wgPasswordSender = "contact@lingualibre.fr";
+$wgEmergencyContact = "contact@lingualibre.org";
+$wgPasswordSender = "contact@lingualibre.org";
 
 $wgEnotifUserTalk = false; # UPO
 $wgEnotifWatchlist = false; # UPO
@@ -196,7 +196,7 @@ $wgOAuthAuthenticationAllowLocalUsers = false;
 $wgOAuthAuthenticationAccountUsurpation = true;
 $wgOAuthAuthenticationReplaceLoginLink = true;
 $wgOAuthAuthenticationValidateSSL = true;
-$wgOAuthAuthenticationCallbackUrl = 'https://lingualibre.fr/wiki/Special:OAuthLogin/finish';
+$wgOAuthAuthenticationCallbackUrl = 'https://lingualibre.org/wiki/Special:OAuthLogin/finish';
 
 # Activate the Wikibase Repository extension
 $wgEnableWikibaseRepo = true;

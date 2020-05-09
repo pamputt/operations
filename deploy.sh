@@ -6,8 +6,8 @@ RELEASE=${RELEASE:-REL1_31}
 read -p "System user [www-data]: " USER
 USER=${USER:-www-data}
 
-read -p "Path [v2.lingualibre.fr]: " MAINPATH
-MAINPATH=${MAINPATH:-v2.lingualibre.fr}
+read -p "Path [dev.lingualibre.org]: " MAINPATH
+MAINPATH=${MAINPATH:-dev.lingualibre.org}
 
 if [ $# -eq 0 ]
 then
@@ -20,7 +20,7 @@ then
 fi
 
 # Install Mediawiki  and import configuration files
-git clone  --recurse-submodules https://gerrit.wikimedia.org/r/p/mediawiki/core.git --branch ${RELEASE} --depth=1 ${MAINPATH}
+git clone  --recurse-submodules https://gerrit.wikimedia.org/r/mediawiki/core.git --branch ${RELEASE} --depth=1 ${MAINPATH}
 cd ${MAINPATH}/
 mkdir -p resources/assets/logo/
 wget https://raw.githubusercontent.com/lingua-libre/operations/master/mediawiki-config/logo/lingualibre-logo.svg -P resources/assets/logo/

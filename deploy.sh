@@ -43,7 +43,7 @@ chown -R ${USER}:${USER} ./
 sudo -u ${USER} composer install --no-dev
 
 # Install skins
-sudo -u ${USER} git clone --depth 1 https://github.com/lingua-libre/llskin.git skins/foreground
+sudo -u ${USER} git clone --depth 1 https://github.com/lingua-libre/BlueLL.git skins/BlueLL
 
 # Install extensions
 cd extensions/

@@ -93,9 +93,6 @@ do
 	cd ../
 done
 
-# Use a patched version of oauthclient-php
-cd OAuthAuthentication/vendor/mediawiki/ && rm -r oauthclient && sudo -u ${USER} git clone https://gerrit.wikimedia.org/r/mediawiki/oauthclient-php oauthclient && cd oauthclient && sudo -u ${USER} git fetch https://gerrit.wikimedia.org/r/mediawiki/oauthclient-php refs/changes/53/408853/2 && sudo -u ${USER} git checkout FETCH_HEAD && cd ../../../../
-
 # Run maintenance scripts
 cd ../
 php maintenance/update.php

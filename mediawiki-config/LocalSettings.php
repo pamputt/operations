@@ -163,6 +163,14 @@ $wgHooks['SkinTemplateOutputPageBeforeExec'][] = function ( $sk, &$tpl ) {
         $tpl->set( 'contact', $contactLink );
         $tpl->data['footerlinks']['places'][] = 'contact';
 
+		# Add a twitter link
+		$tpl->data['footerlinks']['social'] = [];
+
+		$contactLink = Html::element( 'a', [ 'href' => $sk->msg( 'twitter-url' )->escaped() ],
+				$sk->msg( 'twitter' )->text() );
+		$tpl->set( 'twitter', $contactLink );
+		$tpl->data['footerlinks']['social'][] = 'twitter';
+
         # remove both aboutsite and disclaimer links
         \array_splice($tpl->data['footerlinks']['places'], 1, 2);
 

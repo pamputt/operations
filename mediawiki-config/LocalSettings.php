@@ -49,7 +49,7 @@ $wgResourceBasePath = $wgScriptPath;
 
 ## The URL path to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
-$wgLogo = "$wgResourceBasePath/resources/assets/logo/lingualibre-logo.svg";
+$wgLogo = "$wgResourceBasePath/resources/assets/logo/lingualibre-logo-2x.png";
 
 # For the future, when switching to MW 1.35
 #$wgLogos = [

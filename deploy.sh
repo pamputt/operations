@@ -40,7 +40,7 @@ fi
 # Install Lingua Libre configuration and logos
 cd ${MAINPATH}/
 mkdir -p resources/assets/logo/
-wget https://raw.githubusercontent.com/lingua-libre/operations/master/mediawiki-config/logo/lingualibre-logo.svg -P resources/assets/logo/
+wget https://raw.githubusercontent.com/lingua-libre/operations/master/mediawiki-config/logo/lingualibre-logo-2x.png -P resources/assets/logo/
 wget https://raw.githubusercontent.com/lingua-libre/operations/master/mediawiki-config/logo/lingualibre-favicon.ico -P resources/assets/logo/
 wget https://raw.githubusercontent.com/lingua-libre/operations/master/mediawiki-config/LocalSettings.php
 chown -R ${USER}:${USER} ./

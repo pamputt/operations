@@ -149,6 +149,27 @@ $wgDefaultSkin = "bluell";
 wfLoadSkin( 'Vector' );
 wfLoadSkin( 'BlueLL' );
 
+# Change some footer links
+$wgHooks['SkinTemplateOutputPageBeforeExec'][] = function ( $sk, &$tpl ) {
+        # Add About Wikimedia France link
+        $aboutLink = Html::element( 'a', [ 'href' => $sk->msg( 'aboutwmfr-url' )->escaped() ],
+                $sk->msg( 'aboutwmfr' )->text() );
+        $tpl->set( 'aboutwmfr', $aboutLink );
+        $tpl->data['footerlinks']['places'][] = 'aboutwmfr';
+
+        # Add a contact link
+        $contactLink = Html::element( 'a', [ 'href' => $sk->msg( 'contact-url' )->escaped() ],
+                $sk->msg( 'contact' )->text() );
+        $tpl->set( 'contact', $contactLink );
+        $tpl->data['footerlinks']['places'][] = 'contact';
+
+        # remove both aboutsite and disclaimer links
+        \array_splice($tpl->data['footerlinks']['places'], 1, 2);
+
+        return true;
+};
+
+
 # Enabled extensions.
 # The following extensions were automatically enabled:
 wfLoadExtension( 'Cite' );

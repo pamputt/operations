@@ -304,7 +304,7 @@ $wgRecordWizardConfig['listNamespace'] = NS_LIST;
 
 # Activate QueryViz extension
 wfLoadExtension( 'QueryViz' );
-$wgQueryVizEndpoint = "https://lingualibre.fr/bigdata/namespace/wdq/sparql";
+$wgQueryVizEndpoint = "https://lingualibre.org/bigdata/namespace/wdq/sparql";
 
 # Activate i18n-related extensions
 wfLoadExtension( 'Babel' );

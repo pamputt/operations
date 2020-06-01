@@ -194,7 +194,20 @@ wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'WikiEditor' );
 wfLoadExtension( 'CodeEditor' );
 wfLoadExtension( 'Scribunto' );
+wfLoadExtension( 'Echo' );
+wfLoadExtension( 'Thanks' );
 wfLoadExtension( 'CustomSubtitle' );
+
+#Configure echo
+$wgEchoEmailFooterAddress = 'info@wikimedia.fr';
+$wgNotificationSender = 'noreply@lingualibre.org';
+$wgNotificationSenderName = 'Lingua Libre';
+$wgEchoMaxMentionsInEditSummary = 20;
+$wgEchoNotifiers = [
+    'web' => [ 'EchoNotifier', 'notifyWithNotification' ],
+    #'email' => [ 'EchoNotifier', 'notifyWithEmail' ],
+];
+
 
 #Configure scribunto
 $wgScribuntoDefaultEngine = 'luastandalone';

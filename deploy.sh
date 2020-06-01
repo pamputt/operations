@@ -51,7 +51,7 @@ sudo -u ${USER} git clone --depth 1 https://github.com/lingua-libre/BlueLL.git s
 
 # Install extensions
 cd extensions/
-for ext in OAuthAuthentication Wikibase cldr CleanChanges LocalisationUpdate Babel UniversalLanguageSelector Translate MwEmbedSupport TimedMediaHandler CodeEditor Scribunto
+for ext in OAuthAuthentication Wikibase cldr CleanChanges LocalisationUpdate Babel UniversalLanguageSelector Translate MwEmbedSupport TimedMediaHandler CodeEditor Scribunto Echo Thanks
 do
 	sudo -u ${USER} git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/${ext}.git --branch ${RELEASE} --depth 1
 done

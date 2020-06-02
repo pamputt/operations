@@ -1,12 +1,12 @@
 server {
     listen 443 ssl;
     listen [::]:443 ssl;
-    server_name lingualibre.fr www.lingualibre.fr;
+    server_name lingualibre.org www.lingualibre.org;
 
-    ssl_certificate /etc/letsencrypt/live/lingualibre.fr/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/lingualibre.fr/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/lingualibre.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/lingualibre.org/privkey.pem;
 
-    root /var/www/lingualibre.fr/;
+    root /var/www/lingualibre.org/;
 
     client_max_body_size 5m;
     client_body_timeout 60;
@@ -16,7 +16,7 @@ server {
     }
 
     location =/robots.txt {
-        alias /var/robots-www/lingualibre.fr/robots.txt;
+        alias /var/robots-www/lingualibre.org/robots.txt;
     }
 
     location ~ ^/(bigdata|datasets) {

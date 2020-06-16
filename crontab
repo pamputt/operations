@@ -1,9 +1,9 @@
 # Run maintenance scripts on the production instance
-00 4 * * * /usr/bin/php7.0 /home/www/lingualibre.fr/maintenance/cleanupUploadStash.php > /dev/null 2>&1
-00 5 * * * /usr/bin/php7.0 /home/www/lingualibre.fr/maintenance/rebuildLocalisationCache.php > /dev/null 2>&1
+00 4 * * * /usr/bin/php7.0 /home/www/lingualibre.org/maintenance/cleanupUploadStash.php > /dev/null 2>&1
+00 5 * * * /usr/bin/php7.0 /home/www/lingualibre.org/maintenance/rebuildLocalisationCache.php > /dev/null 2>&1
 # Run maintenance scripts on the testing instance
-15 4 * * * /usr/bin/php7.0 /home/www/v2.lingualibre.fr/maintenance/cleanupUploadStash.php > /dev/null 2>&1
-00 5 * * * /usr/bin/php7.0 /home/www/v2.lingualibre.fr/maintenance/rebuildLocalisationCache.php > /dev/null 2>&1
+15 4 * * * /usr/bin/php7.0 /home/www/v2.lingualibre.org/maintenance/cleanupUploadStash.php > /dev/null 2>&1
+00 5 * * * /usr/bin/php7.0 /home/www/v2.lingualibre.org/maintenance/rebuildLocalisationCache.php > /dev/null 2>&1
 # Other stuff
 30 2 * * 1 /opt/letsencrypt/letsencrypt-auto renew >> /var/log/le-renew.log
 45 2 * * 1 /bin/systemctl reload nginx
